@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Google from './pages/Google';
 import Search from './pages/Search';
 import Footer from './components/Footer';
-
 import './App.css';
 
 function App() {

@@ -5,12 +5,12 @@ import searchResult from '../../services/googleSearchAPI';
 import Header from './components/Header';
 import Results from './components/Results';
 
-const SearchSec = styled.section`
+const Conatiner = styled.section`
     flex : 1;
     width : 100%;
 `;
 
-function Search({ query, setQuery, handleInput, apiKEY, apiCX }) {
+export default function Search({ query, setQuery, handleInput, apiKEY, apiCX }) {
     const [searchParams] = useSearchParams();
     const [results, setResults] = useState([]);
 
@@ -33,12 +33,10 @@ function Search({ query, setQuery, handleInput, apiKEY, apiCX }) {
     }, [searchParams, setQuery, apiKEY, apiCX]);
 
     return (
-        <SearchSec>
+        <Conatiner>
             <Header query={query} handleInput={handleInput}/>
             <hr />
             <Results results={results}/>
-        </SearchSec>
+        </Conatiner>
     );
 }
-
-export default Search;
