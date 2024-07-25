@@ -29,7 +29,9 @@ const Form = styled.form`
 export default function Header({ query, handleInput }) {
   return (
     <HeaderContainer>
-      <Logo src={GoogleImg} alt="Google logo" />
+      <a href="/">
+        <Logo src={GoogleImg} alt="Google logo" />
+      </a>
       <Form>
         <SearchBox h="44px" query={query} handleInput={handleInput} />
       </Form>
