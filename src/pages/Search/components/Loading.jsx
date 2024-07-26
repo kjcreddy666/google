@@ -6,6 +6,17 @@ const LoadingContainer = styled.div`
     padding: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+
+    @media (max-width: 1290px) {
+        margin-left: 100px;
+    }
+
+    @media (max-width: 956px) {
+        width: 70%;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 export default function Loading() {
