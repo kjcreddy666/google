@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import searchResult from '../../services/googleSearchAPI';
 import Header from './components/Header';
+import Loading from './components/Loading';
 import Results from './components/Results';
 
 const Conatiner = styled.section`
@@ -13,6 +14,7 @@ const Conatiner = styled.section`
 export default function Search({ query, setQuery, handleInput, apiKEY, apiCX }) {
     const [searchParams] = useSearchParams();
     const [results, setResults] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSearchResults = async () => {
@@ -21,6 +23,7 @@ export default function Search({ query, setQuery, handleInput, apiKEY, apiCX }) 
                 if (q) {
                     setQuery(q);
                     const res = await searchResult(apiKEY, apiCX, q);
+                    setLoading(false);
                     setResults(res);
                     // console.log(res);
                 }
@@ -36,7 +39,7 @@ export default function Search({ query, setQuery, handleInput, apiKEY, apiCX }) 
         <Conatiner>
             <Header query={query} handleInput={handleInput}/>
             <hr />
-            <Results results={results}/>
+            {loading ? <Loading /> : <Results results={results}/>}
         </Conatiner>
     );
 }
