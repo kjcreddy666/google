@@ -8,6 +8,7 @@ const searchResult = async (key, cx, q) => {
         }
 
         const data = await response.json();
+        console.log(data);
 
         if (data && data.items) {
             return data.items.map(item => {
