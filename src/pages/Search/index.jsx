@@ -23,8 +23,10 @@ export default function Search({ query, setQuery, handleInput, apiKEY, apiCX }) 
                 if (q) {
                     setQuery(q);
                     const res = await searchResult(apiKEY, apiCX, q);
-                    setLoading(false);
-                    setResults(res);
+                    setTimeout(() => {
+                        setLoading(false)
+                        setResults(res);
+                    }, 100)
                     // console.log(res);
                 }
             } catch (error) {
